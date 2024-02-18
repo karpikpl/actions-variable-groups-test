@@ -1,0 +1,20 @@
+name: Tokenization
+
+on:
+    workflow_dispatch:
+
+jobs:
+  tokenize:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Inject Variables
+      uses: lindluni/actions-variable-groups@v2
+      with:
+        groups: |
+           config.yml
+
+    - name: Display Portal URL
+      run: echo "PORT is $PORT"
